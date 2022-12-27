@@ -113,5 +113,43 @@ body {
 }
 
 .notes__add:hover {
-    background-color: #00af8c;
+  background-color: #00af8c;
+}
+
+/* Note Preview Styles */
+.notes__preview {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  flex-grow: 1;
+}
+
+.notes__title,
+.notes__body {
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.notes__title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.notes__body {
+  flex-grow: 1;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-top: 2rem;
+  resize: none;
+}
+
+.notes__body::placeholder {
+  font-family: iranyekan;
+}
+
+.notes__title::placeholder {
+  font-family: iranyekan;
 }
