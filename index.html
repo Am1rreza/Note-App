@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,7 +12,25 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="notes" id="app">
+      <div class="notes__sidebar">
+        <div class="notes__logo">NOTE APP</div>
+        <div class="notes__list">
+          <div class="notes__list-item notes__list-item--selected">
+            <div class="notes__small-title">New Note</div>
+            <div class="notes__small-body">This is my first note</div>
+            <div class="notes__small-updated">Monday 8:35</div>
+          </div>
+        </div>
+        <button class="notes__add">Add Note</button>
+      </div>
+      <div class="notes__preview">
+        <input type="text" class="notes__title" placeholder="Note Title" />
+        <textarea class="notes__body" placeholder="Take Some Note"></textarea>
+      </div>
+    </div>
+  </body>
 </html>
