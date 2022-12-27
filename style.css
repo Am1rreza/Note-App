@@ -1,0 +1,26 @@
+@import url(/assets/styles/fontiran.css);
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+/* Variables */
+:root {
+  --primaryColor: #6d28d9;
+  --secondaryColor: #ede9fe;
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGray: #7c7c7c;
+  --mainRed: #db2777;
+  --mainTransition: all 0.3s;
+  --bodyColor: #f6f6f6;
+}
+
+/* Body */
+body {
+  font-family: iranyekan;
+}
