@@ -19,7 +19,7 @@ const notes = [
   },
 ];
 
-class NotesAPI {
+export default class NotesAPI {
   static getAllNotes() {
     const savedNotes = JSON.parse(localStorage.getItem("notes-app")) || [];
     return savedNotes.sort((a, b) => {
