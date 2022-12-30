@@ -27,7 +27,26 @@ class NotesAPI {
     });
   }
 
-  static saveNote() {}
+  static saveNote(noteToSave) {
+    const notes = NotesAPI.getAllNotes();
+    const existedNote = notes.find((n) => n.id == noteToSave.id);
+
+    if (existedNote) {
+      // update the note updated
+      existedNote.updated = new Date().toISOString();
+      // update the title and body
+      existedNote.title = noteToSave.title;
+      existedNote.body = noteToSave.body;
+    } else {
+      noteToSave.id = new Date().getTime();
+      noteToSave.updated = new Date().toISOString();
+      // new note !
+      notes.push(noteToSave);
+    }
+
+    // save to storage
+    localStorage.setItem("notes-app", JSON.stringify(notes));
+  }
 
   deleteNote() {}
 }
