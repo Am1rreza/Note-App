@@ -43,7 +43,12 @@ export default class NotesView {
 
     return `
     <div class="notes__list-item" data-note-id="${id}">
-            <div class="notes__small-title">${title}</div>
+            <div class="notes__item-header">
+              <div class="notes__small-title">${title}</div>
+              <span class="notes__list-trash">
+                <i class="far fa-trash-alt"></i>
+              </span>
+            </div>
             <div class="notes__small-body">
             ${body.substring(0, MAX_BODY_LENGTH)}
             ${body.length > MAX_BODY_LENGTH ? "..." : ""}

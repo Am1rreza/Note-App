@@ -154,3 +154,21 @@ body {
 .notes__title::placeholder {
   font-family: iranyekan;
 }
+
+.notes__item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.notes__list-trash {
+  width: 35px;
+  height: 35px;
+  color: var(--mainRed);
+  background-color: var(--mainWhite);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
