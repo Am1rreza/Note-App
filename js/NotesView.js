@@ -2,9 +2,10 @@ export default class NotesView {
   constructor(root, handlers) {
     this.root = root;
 
-    const { onNoteAdd, onNoteEdit } = handlers;
+    const { onNoteAdd, onNoteEdit, onNoteSelect } = handlers;
     this.onNoteAdd = onNoteAdd;
     this.onNoteEdit = onNoteEdit;
+    this.onNoteSelect = onNoteSelect;
     // add root innerHTML
     this.root.innerHTML = `
     <div class="notes__sidebar">
@@ -41,7 +42,7 @@ export default class NotesView {
     const MAX_BODY_LENGTH = 50;
 
     return `
-    <div class="notes__list-item" data-node-id="${id}">
+    <div class="notes__list-item" data-note-id="${id}">
             <div class="notes__small-title">${title}</div>
             <div class="notes__small-body">
             ${body.substring(0, MAX_BODY_LENGTH)}
@@ -57,5 +58,24 @@ export default class NotesView {
     `;
   }
 
-  updateNoteList(notes) {}
+  updateNoteList(notes) {
+    const notesContainer = this.root.querySelector(".notes__list");
+    let notesList = "";
+    // empty notes list
+    notesContainer.innerHTML = "";
+    // loop on notes array
+    notes.forEach((note) => {
+      const { id, title, body, updated } = note;
+      const html = this.#createListItemHTML(id, title, body, updated);
+      notesList += html;
+    });
+    // update the innerHTML of the notesContainer
+    notesContainer.innerHTML = notesList;
+    // event listener
+    notesContainer.querySelectorAll(".notes__list-item").forEach((noteItem) => {
+      noteItem.addEventListener("click", () => {
+        this.onNoteSelect(noteItem.dataset.noteId);
+      });
+    });
+  }
 }

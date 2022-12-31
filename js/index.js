@@ -7,7 +7,13 @@ const view = new NotesView(app, {
     console.log("note added");
   },
 
-  onNoteEdit(newTitle,newBody){
-    console.log(newTitle,newBody);
-  }
+  onNoteEdit(newTitle, newBody) {
+    console.log(newTitle, newBody);
+  },
+
+  onNoteSelect(noteId) {
+    console.log(noteId);
+  },
 });
+
+view.updateNoteList(NotesAPI.getAllNotes());
