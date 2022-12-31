@@ -110,6 +110,7 @@ body {
   padding: 0.75rem 0;
   width: 100%;
   transition: var(--mainTransition);
+  margin-top: 15px;
 }
 
 .notes__add:hover {
@@ -171,4 +172,5 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 5px;
 }
