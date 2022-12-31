@@ -37,6 +37,9 @@ export default class NotesView {
         this.onNoteEdit(newTitle, newBody);
       });
     });
+
+    // hide notes preview in first loading
+    this.updateNotePreviewVisibility(false);
   }
 
   #createListItemHTML(id, title, body, updated) {
@@ -105,5 +108,11 @@ export default class NotesView {
     this.root
       .querySelector(`.notes__list-item[data-note-id="${note.id}"]`)
       .classList.add("notes__list-item--selected");
+  }
+
+  updateNotePreviewVisibility(visible) {
+    this.root.querySelector(".notes__preview").style.visibility = visible
+      ? "visible"
+      : "hidden";
   }
 }
