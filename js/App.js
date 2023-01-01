@@ -26,7 +26,13 @@ export default class App {
   handlers() {
     return {
       onNoteAdd: () => {
-        console.log("note added");
+        const newNote = {
+          title: "New Note",
+          body: "Take some note",
+        };
+
+        NotesAPI.saveNote(newNote);
+        this.#refreshNotes();
       },
 
       onNoteEdit: (newTitle, newBody) => {
