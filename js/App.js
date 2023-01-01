@@ -15,12 +15,15 @@ export default class App {
     this.notes = notes;
 
     // set Notes
-    this.view.updateNoteList(this.notes);
-    this.view.updateNotePreviewVisibility(this.notes.length > 0);
-
+    this.#setNotes(notes);
     // set active note
     this.activeNote = this.notes[0];
     this.view.updateActiveNote(this.activeNote);
+  }
+
+  #setNotes(notes) {
+    this.view.updateNoteList(this.notes);
+    this.view.updateNotePreviewVisibility(this.notes.length > 0);
   }
 
   handlers() {
