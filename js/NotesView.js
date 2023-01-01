@@ -101,7 +101,7 @@ export default class NotesView {
     this.root.querySelector(".notes__title").value = note.title;
     this.root.querySelector(".notes__body").value = note.body;
     // remove all of the classes
-    this.root.querySelectorAll("notes__list-item").forEach((item) => {
+    [...this.root.querySelectorAll(".notes__list-item")].forEach((item) => {
       item.classList.remove("notes__list-item--selected");
     });
     // add selected class
