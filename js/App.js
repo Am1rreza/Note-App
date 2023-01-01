@@ -5,7 +5,7 @@ export default class App {
   constructor(root) {
     this.notes = [];
     this.activeNote = null;
-    this.view = new NotesView(root, this.#handlers);
+    this.view = new NotesView(root, this.handlers());
 
     this.#refreshNotes();
   }
@@ -23,7 +23,7 @@ export default class App {
     this.view.updateActiveNote(this.activeNote);
   }
 
-  #handlers() {
+  handlers() {
     return {
       onNoteAdd: () => {
         console.log("note added");
@@ -34,7 +34,9 @@ export default class App {
       },
 
       onNoteSelect: (noteId) => {
-        console.log(noteId);
+        const selectedNote = this.notes.find((n) => n.id == noteId);
+        this.activeNote = selectedNote;
+        this.view.updateActiveNote(this.activeNote);
       },
 
       onNoteDelete: (noteId) => {
